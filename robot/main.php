@@ -21,7 +21,6 @@ class main {
         $err = 0;
         do {
 
-            od('.');
             $info = $voice->record();
             od($info);
             if ($voice->check("(你好|您好|hello).*(小K)")) {
@@ -35,7 +34,6 @@ class main {
                 $err = 0;
                 $voice->say('现在是'.date('Y').'年'.date('m').'月'.date('d').'日'.
                         date('H').'点'.date('i').'分');
-                $exit = true;
             } elseif (empty($info)) {
                 $err++;
                 if ($err >= 5) {
