@@ -27,7 +27,7 @@ class main {
             if (strpos('你好小幽', $info) !== false) {
                 $err = 0;
                 $voice->say('你好!小主人!');
-            } elseif ('再见' == $info) {
+            } elseif (strpos('再见', $info) !== false) {
                 $err = 0;
                 $voice->say('下次再聊');
                 $exit = true;

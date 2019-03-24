@@ -29,7 +29,7 @@ class voice {
 
     //put your code here
     function record() {
-//        exec('sudo arecord -D "plughw:0" -f S16_LE -r 16000 -d 3 ' . $this->tmpdir . $this->tmpfile);
+        exec('sudo arecord -D "plughw:0" -f S16_LE -r 16000 -d 3 ' . $this->tmpdir . $this->tmpfile);
         usleep(20000);
 
         $info = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
