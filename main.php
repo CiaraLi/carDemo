@@ -21,9 +21,10 @@ do {
     od('.');
     $info = $voice->record();
     od($info);
-    if('你好小幽'==$info){
+    if ($voice->check("(你好|您好|hello).*(小幽)")) {
+        $voice->say('你好!小主人!');
         $robot->listen();
-    } 
-    $exit=true;
+    }
+    $exit = true;
 } while ($exit != true);
 

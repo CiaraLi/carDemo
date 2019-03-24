@@ -51,7 +51,7 @@ class translate {
                     'speech' => $content,
                     'len' => filesize($file)
                 ];
-		od($parm);
+//		od($parm);
                 ot('正在识别...');
                 $data = $curl->run($url, json_encode($parm));
                 $data = json_decode($data, true);
