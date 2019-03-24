@@ -20,9 +20,10 @@ class voice {
     private $tmpdir;
     private $tmpfile;
     private $trans;
+    private $info;
 
     function __construct() {
-        $this->tmpdir = "/tmp/carDemo/" ;
+        $this->tmpdir = "/tmp/carDemo/";
         $this->tmpfile = 'tmp.wav';
         $this->trans = new Trans();
     }
@@ -32,12 +33,17 @@ class voice {
         exec('sudo arecord -D "plughw:0" -f S16_LE -r 16000 -d 3 ' . $this->tmpdir . $this->tmpfile);
         usleep(20000);
 
-        $info = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
-        return trim($info);
+        $this->info = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
+        return trim($this->info);
     }
 
     function say($txt) {
-        $url=$this->trans->transVoice($this->tmpdir . $this->tmpfile);
-        exec('mpg123 "'.$url.'"');   
+        $url = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
+        exec('mpg123 "' . $url . '"');
     }
+
+    function check($check) {
+        return preg_match("/$check/iSU", $this->info);
+    }
+
 }

@@ -24,14 +24,14 @@ class main {
             od('.');
             $info = $voice->record();
             od($info);
-            if (strpos('你好小幽', $info) !== false) {
+            if ($voice->check("(你好|您好|hello).*(小幽)")) {
                 $err = 0;
                 $voice->say('你好!小主人!');
-            } elseif (strpos('再见', $info) !== false) {
+            } elseif ($voice->check("再见")) {
                 $err = 0;
                 $voice->say('下次再聊');
                 $exit = true;
-            }elseif (strpos('几点了', $info) !== false) {
+            }elseif ($voice->check("几点了")) {
                 $err = 0;
                 $voice->say('现在是'.date('Y').'年'.date('m').'月'.date('d').'日'.
                         date('H').'点'.date('i').'分');
