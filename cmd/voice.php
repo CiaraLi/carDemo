@@ -22,7 +22,7 @@ class voice {
     private $trans;
 
     function __construct() {
-        $this->tmpdir = "/tmp/carDemo/" . date('Ymd') . '/';
+        $this->tmpdir = "/tmp/carDemo/" ;
         $this->tmpfile = 'tmp.wav';
         $this->trans = new Trans();
     }
