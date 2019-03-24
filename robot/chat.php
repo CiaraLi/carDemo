@@ -2,6 +2,8 @@
 
 namespace robot;
 
+use lib\Curl;
+
 /**
  * Description of chat
  * 自动对话模块
