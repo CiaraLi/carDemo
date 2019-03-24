@@ -24,7 +24,7 @@ class main {
             od('.');
             $info = $voice->record();
             od($info);
-            if ($voice->check("(你好|您好|hello).*(小幽)")) {
+            if ($voice->check("(你好|您好|hello).*(小)")) {
                 $err = 0;
                 $voice->say('你好!小主人!');
             } elseif ($voice->check("再见")) {

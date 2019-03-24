@@ -18,7 +18,6 @@ $robot = new Robot();
 $voice = new Voice();
 do {
 
-    od('.');
     $info = $voice->record();
     od($info);
     if ($voice->check("(你好|您好|hello).*(小幽)")) {
