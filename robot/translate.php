@@ -56,7 +56,7 @@ class translate {
                 $data = $curl->run($url, json_encode($parm));
                 $data = json_decode($data, true);
                 if (!empty($data['err_no']) && $data['err_no'] == 0) {
-                    return $data['result'];
+                    return $data['result'][0];
                 }
                 od($data);
             }
