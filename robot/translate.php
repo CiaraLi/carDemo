@@ -55,7 +55,7 @@ class translate {
                 ot('正在识别...');
                 $data = $curl->run($url, json_encode($parm));
                 $data = json_decode($data, true);
-                if (!empty($data['err_no']) && $data['err_no'] == 0) {
+                if (!empty($data['result']) && $data['err_no'] == 0) {
                     return $data['result'][0];
                 }
                 od($data);
