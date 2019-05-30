@@ -27,7 +27,7 @@ class voice {
         $this->tmpfile = 'tmp.wav';
         $this->trans = new Trans();
         if(!file_exists($this->tmpdir . $this->tmpfile)){
-            mkdir($this->tmpdir,'0777',true);
+            is_dir($this->tmpdir)?'':mkdir($this->tmpdir,'0777',true);
             file_put_contents($this->tmpdir . $this->tmpfile, "");
         }
     }
