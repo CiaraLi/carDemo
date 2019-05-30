@@ -18,7 +18,7 @@ class chat {
         $curl = new Curl();
         $url = "http://www.tuling123.com/openapi/api";
         $parm = [
-            "key" => Tuling_API_KEY, "info" => $info
+            "key" => TULING_API_KEY, "info" => $info
         ];
         $data = $curl->run($url, $parm);
         $data = json_decode($data, true);

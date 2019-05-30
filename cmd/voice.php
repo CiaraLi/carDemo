@@ -35,8 +35,8 @@ class voice {
     //put your code here
     function record() {
 
-        od('.');
-        usleep(5000);
+        od('请讲话');
+        usleep(3000);
         exec('sudo arecord -D "plughw:' . intval(_ARECORD_DEVICE_) . '" -f S16_LE -r 16000 -d 4 ' . $this->tmpdir . $this->tmpfile);
         usleep(4000);
 

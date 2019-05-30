@@ -22,8 +22,8 @@ class translate {
         $url = "https://openapi.baidu.com/oauth/2.0/token";
         $parm = [
             'grant_type' => 'client_credentials',
-            'client_id' => '83epZzOBDm31n1t1mDnLld6C',
-            'client_secret' => 'iugLlkGB6wCMKGDfrG1swK4oGZdxicEr',
+            'client_id' => BAIDU_CLIENT_ID,
+            'client_secret' => BAIDU_CLIENT_SECRET,
         ];
         $data = $curl->run($url, $parm);
         $data = json_decode($data, true);
@@ -46,7 +46,7 @@ class translate {
                     'format' => 'wav',
                     'rate' => 16000,
                     'channel' => 1,
-                    'cuid' => 'b8:27:eb:35:73:e4',
+                    'cuid' => BAIDU_YUYIN_CUID,
                     'token' => $this->token,
                     'speech' => $content,
                     'len' => filesize($file)
