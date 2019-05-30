@@ -15,10 +15,10 @@ $exit = false;
 $robot = new Robot();
 $voice = new Voice();
 do {
-
+    
     $info = $voice->record();
     od($info);
-    if ($voice->check("(你好|您好|hello).*(小K)")) {
+    if ($voice->check("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
         $voice->say('你好!小主人!');
         $robot->listen();
     }

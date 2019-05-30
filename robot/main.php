@@ -23,7 +23,7 @@ class main {
 
             $info = $voice->record();
             od($info);
-            if ($voice->check("(你好|您好|hello).*(小K)")) {
+            if ($voice->check("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
                 $err = 0;
                 $voice->say('你好!小主人!');
             } elseif ($voice->check("再见")) {
