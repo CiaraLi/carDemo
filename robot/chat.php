@@ -29,7 +29,7 @@ class chat {
             ], 
         ];
         od($parm);
-        $data = $curl->run($url, $parm);
+        $data = $curl->run($url, json_encode($parm));
         $data = json_decode($data, true);
         od($data);
         $reply = empty($data['text']) ? '' : $data['text'];
