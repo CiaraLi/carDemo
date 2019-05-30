@@ -19,7 +19,7 @@ do {
     $info = $voice->record();
     od($info);
     if ($voice->check("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
-        $voice->say('你好,小主人');
+        $voice->say('小主人我在呀');
         $robot->listen();
     }
     $exit = true;

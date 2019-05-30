@@ -25,7 +25,7 @@ class main {
             od($info);
             if ($voice->check("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
                 $err = 0;
-                $voice->say('你好!小主人!');
+                $voice->say('小主人我在呀');
             } elseif ($voice->check("再见")) {
                 $err = 0;
                 $voice->say('下次再聊');
