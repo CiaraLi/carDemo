@@ -26,10 +26,14 @@ class voice {
         $this->tmpdir = "/tmp/carDemo/";
         $this->tmpfile = 'tmp.wav';
         $this->trans = new Trans();
+        if(!file_exists($this->tmpdir . $this->tmpfile)){
+            file_put_contents($this->tmpdir . $this->tmpfile, "");
+        }
     }
 
     //put your code here
     function record() {
+        
         od('.');
         usleep(5000);
         exec('sudo arecord -D "plughw:0" -f S16_LE -r 16000 -d 4 ' . $this->tmpdir . $this->tmpfile);
