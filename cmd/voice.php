@@ -41,7 +41,7 @@ class voice {
 
     function say($txt) {
         $url = $this->trans->transTxt($txt);
-        exec('mpg123 "' . $url . '"');
+        exec('mpg123 ' . urlencode($url) );
     }
 
     function check($check) {
