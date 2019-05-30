@@ -40,7 +40,7 @@ class voice {
     }
 
     function say($txt) {
-        $url = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
+        $url = $this->trans->transTxt($txt);
         exec('mpg123 "' . $url . '"');
     }
 
