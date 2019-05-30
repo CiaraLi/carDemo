@@ -27,5 +27,6 @@ function od($str) {
 }
 
 function ot($str) {
+    echo "[".date('Y-m-d H:i:s')."]:";
     var_dump($str);
 }

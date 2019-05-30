@@ -17,7 +17,7 @@ $voice = new Voice();
 do {
     
     $info = $voice->record();
-    od($info);
+    ot($info);
     if ($voice->check("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
         $voice->say('小主人我在呀');
         $robot->listen();

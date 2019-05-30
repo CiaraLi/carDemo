@@ -20,8 +20,10 @@ class chat {
         $parm = [
             "key" => TULING_API_KEY, "info" => $info
         ];
+        od($parm);
         $data = $curl->run($url, $parm);
         $data = json_decode($data, true);
+        od($data);
         $reply = empty($data['text']) ? '' : $data['text'];
 
         return $reply;
