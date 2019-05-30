@@ -26,18 +26,18 @@ class voice {
         $this->tmpdir = "/tmp/carDemo/";
         $this->tmpfile = 'tmp.wav';
         $this->trans = new Trans();
-        if(!file_exists($this->tmpdir . $this->tmpfile)){
-            is_dir($this->tmpdir)?'':mkdir($this->tmpdir,'0777',true);
+        if (!file_exists($this->tmpdir . $this->tmpfile)) {
+            is_dir($this->tmpdir) ? '' : mkdir($this->tmpdir, '0777', true);
             file_put_contents($this->tmpdir . $this->tmpfile, "");
         }
     }
 
     //put your code here
     function record() {
-        
+
         od('.');
         usleep(5000);
-        exec('sudo arecord -D "plughw:'.  intval(_ARECORD_DEVICE_).'" -f S16_LE -r 16000 -d 4 ' . $this->tmpdir . $this->tmpfile);
+        exec('sudo arecord -D "plughw:' . intval(_ARECORD_DEVICE_) . '" -f S16_LE -r 16000 -d 4 ' . $this->tmpdir . $this->tmpfile);
         usleep(4000);
 
         $this->info = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
@@ -46,7 +46,7 @@ class voice {
 
     function say($txt) {
         $url = $this->trans->transTxt($txt);
-        exec('mpg123 ' . $url );
+        $url ? exec('mpg123 ' . $url) : FALSE;
     }
 
     function check($check) {

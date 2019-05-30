@@ -76,8 +76,8 @@ class translate {
         od($url);
         $ch = new Curl();
         $file = "/tmp/carDemo/".  md5($txt).".mp3";
-        $ch->saveFile($url, $file);
-        return $url;
+        $filename=$ch->saveFile($url, $file);
+        return $filename?$filename:false;
     }
 
 }
