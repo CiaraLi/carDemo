@@ -73,6 +73,8 @@ class translate {
         $spd = "4";
         $url = "http://tsn.baidu.com/text2audio?tex={$txt}&lan=zh&cuid={$cuid}" .
                 "&ctp=1&tok={$this->token}&spd={$spd}&per=0&pit=8";
+        od($url);
+       return $url;
     }
 
 }
