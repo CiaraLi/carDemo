@@ -22,6 +22,6 @@ do {
         $voice->say('小主人我在呀');
         $robot->listen();
     }
-    $exit = true;
+//    $exit = true;
 } while ($exit != true);
 
