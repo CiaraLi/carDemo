@@ -32,7 +32,9 @@ class chat {
         $data = $curl->run($url, json_encode($parm));
         $data = json_decode($data, true);
         od($data);
-        $reply = empty($data['text']) ? '' : $data['text'];
+        if(isset($data['results'][0])&&$data['results'][0]['resultType']=='text') {
+            $reply=$data['results'][0]['values']['text'];
+        }
 
         return $reply;
     }
