@@ -1,7 +1,5 @@
 <?php
 
-define("_OPENDEBUG_", true);
-
 require_once 'autoload.php';
 
 use robot\main as Robot;

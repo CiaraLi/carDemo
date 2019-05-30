@@ -36,7 +36,7 @@ class voice {
         
         od('.');
         usleep(5000);
-        exec('sudo arecord -D "plughw:0" -f S16_LE -r 16000 -d 4 ' . $this->tmpdir . $this->tmpfile);
+        exec('sudo arecord -D "plughw:'.  intval(_ARECORD_DEVICE_).'" -f S16_LE -r 16000 -d 4 ' . $this->tmpdir . $this->tmpfile);
         usleep(4000);
 
         $this->info = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
@@ -45,7 +45,7 @@ class voice {
 
     function say($txt) {
         $url = $this->trans->transTxt($txt);
-        exec('mpg123 ' . urlencode($url) );
+        exec('mpg123 ' . $url );
     }
 
     function check($check) {
