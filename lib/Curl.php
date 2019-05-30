@@ -49,4 +49,22 @@ class Curl {
         return $response;
     }
 
+    function saveFile($url, $file) {
+        if (!file_exists($file)) {
+ 
+            //获取语语音数据 并生成 本地mp3文件
+            $data = file_get_contents($url);
+
+            if (json_decode($data,true)) {
+                return false;
+            }
+
+            file_put_contents($file, $data);
+        }
+
+        if ($file) {
+            return $file; //返回本地音源路径 
+        }
+    }
+
 }
