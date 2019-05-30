@@ -71,7 +71,7 @@ class translate {
     function transTxt($txt) {
         $cuid = "b8:27:eb:35:73:e4";
         $spd = "4";
-        $url = "http://tsn.baidu.com/text2audio?tex=". urlencode($txt)."&lan=zh&cuid={$cuid}" .
+        $url = "http://tsn.baidu.com/text2audio?lan=zh&ie=UTF-8&tex=". urlencode($txt)."&cuid={$cuid}" .
                 "&ctp=1&tok={$this->token}&spd={$spd}&per=0&pit=8";
         od($url);
        return $url;
