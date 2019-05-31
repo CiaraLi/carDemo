@@ -18,9 +18,11 @@ do {
     
     $info = $voice->record();
     ot($info);
-    if ($voice->check("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
-        $voice->say('小主人我在呀');
-        $robot->listen();
+    if ($voice->match("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
+        $voice->play('小主人我在呀');
+        $robot->awake();
+        $time=$robot->getWakeTime();
+        ot('本次互动'.($time/60).'分钟');
     }
 //    $exit = true;
 } while ($exit != true);
