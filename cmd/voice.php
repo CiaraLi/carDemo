@@ -33,7 +33,7 @@ class voice {
         $this->tmpfile = 'tmp.wav';
         $this->trans = new Trans();
         if (!file_exists($this->tmpdir . $this->tmpfile)) {
-            is_dir($this->tmpdir) ? '' : mkdir($this->tmpdir, '0755', true);
+            is_dir($this->tmpdir) ? '' : mkdir($this->tmpdir, '0777', true);
             file_put_contents($this->tmpdir . $this->tmpfile, "");
         }
     }
@@ -51,7 +51,7 @@ class voice {
 
         $this->info = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
 
-        ot($this->info);
+        ot('you:'.$this->info);
         return trim($this->info);
     }
 
@@ -86,7 +86,7 @@ class voice {
      * @param string $txt 音频文件全路径或url地址
      */
     function play($txt) {
-        ot($txt);
+        ot('robot:'.$txt);
         $url = $this->trans->transTxt($txt);
         $url ? exec('mpg123 ' . $url) : FALSE;
     }

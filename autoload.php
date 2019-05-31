@@ -22,12 +22,12 @@ function loadDir($path, $root = true) {
 
 function od($str) {
     if (_OPENDEBUG_) {
-        echo "[debug]" . date('Y-m-d H:i:s') . "--:";
+        echo "----[debug]" . date('Y-m-d H:i:s') . "----\r\n";
         var_dump($str);
     }
 }
 
 function ot($str) {
-    echo "[提示]" . date('Y-m-d H:i:s') . ":";
+    echo "[提示]" . date('Y-m-d H:i:s') . "\r\n";
     var_dump($str);
 }
