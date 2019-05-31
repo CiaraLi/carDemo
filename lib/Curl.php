@@ -69,7 +69,7 @@ class Curl {
      * @param type $recover  是否覆盖
      * @return boolean
      */
-    function saveFile($url, $file,$recover) {
+    function saveFile($url, $file,$recover=false) {
         if (!file_exists($file)||$recover) {
  
             //获取语语音数据 并生成 本地mp3文件

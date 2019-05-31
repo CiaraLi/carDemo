@@ -48,7 +48,7 @@ class main {
      * 应答
      */
     function reply($txt) {
-        $this->voice->say($txt);
+        $this->voice->play($txt);
         $this->active_time = time();
     }
 
