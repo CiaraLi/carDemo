@@ -15,9 +15,8 @@ $exit = false;
 $robot = new Robot();
 $voice = new Voice();
 do {
-    
-    $info = $voice->record();
-    ot($info);
+    od('待机中……');
+    $info = $voice->record(); 
     if ($voice->match("(你好|您好|hello)?.*("._ROBOT_NAME_.")")) {
         $voice->play('小主人我在呀');
         $robot->awake();

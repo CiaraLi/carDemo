@@ -51,7 +51,7 @@ class voice {
 
         $this->info = $this->trans->transVoice($this->tmpdir . $this->tmpfile);
 
-        ot('you:'.$this->info);
+        ot('you:' . $this->info);
         return trim($this->info);
     }
 
@@ -68,7 +68,7 @@ class voice {
      * @return bool 匹配结果
      */
     function check() {
-        return empty($this->info);
+        return empty($this->info) ? false : true;
     }
 
     /**
@@ -78,7 +78,7 @@ class voice {
      * @return bool 匹配结果
      */
     function match($check, &$matchs = []) {
-        return  preg_match("/$check/iSU", $this->info, $matchs); 
+        return preg_match("/$check/iSU", $this->info, $matchs);
     }
 
     /**
@@ -86,7 +86,7 @@ class voice {
      * @param string $txt 音频文件全路径或url地址
      */
     function play($txt) {
-        ot('robot:'.$txt);
+        ot('robot:' . $txt);
         $url = $this->trans->transTxt($txt);
         $url ? exec('mpg123 ' . $url) : FALSE;
     }
