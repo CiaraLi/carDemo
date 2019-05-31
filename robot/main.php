@@ -19,7 +19,8 @@ class main {
     private $active_time; //活跃时间
 
     function __construct() {
-
+        $this->wake_time = time();
+        $this->active_time = time();
         $this->voice = new Voice();
         $this->chat = new Chat();
     }
@@ -66,20 +67,20 @@ class main {
      */
     function awake() {
         do {
-            if (!$this->listen()) {
-                continue;
-            }
-            //针对不同内容进行应答
-            if ($this->voice->match("(你好|您好|hello)?.*(" . _ROBOT_NAME_ . ")")) {
-                $this->reply('小主人我在呀');
-            } elseif ($this->voice->match("再见")) {
-                $this->reply('下次再聊');
-            } elseif ($this->voice->match("几点了")) {
-                $this->reply('现在是' . date('Y年m月d日 H点i分'));
-            } else {
-                $reply = $this->chat->reply($this->voice->info());
-                if (!empty($reply)) {
-                    $this->reply($reply);
+            if ($this->listen()) {
+
+                //针对不同内容进行应答
+                if ($this->voice->match("(你好|您好|hello)?.*(" . _ROBOT_NAME_ . ")")) {
+                    $this->reply('小主人我在呀');
+                } elseif ($this->voice->match("再见")) {
+                    $this->reply('下次再聊');
+                } elseif ($this->voice->match("几点了")) {
+                    $this->reply('现在是' . date('Y年m月d日 H点i分'));
+                } else {
+                    $reply = $this->chat->reply($this->voice->info());
+                    if (!empty($reply)) {
+                        $this->reply($reply);
+                    }
                 }
             }
         } while (!$this->standby());
