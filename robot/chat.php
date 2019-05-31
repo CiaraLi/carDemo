@@ -17,6 +17,9 @@ class chat {
      * @return type
      */
     function reply($info) {
+        if(empty($info)){
+            return '';
+        }
         $reply = '';
 
         $curl = new Curl();
