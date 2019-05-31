@@ -8,6 +8,13 @@ class Curl {
     protected $timeout = 5;
     static $instance;
 
+    /**
+     * post     请求
+     * @param type $url
+     * @param type $data
+     * @param type $json
+     * @return string
+     */
     function run($url, $data, $json = true) {
         try {
             $this->ch = curl_init();
@@ -33,6 +40,12 @@ class Curl {
         }
     }
 
+    /**
+     * 发送文件
+     * @param type $url
+     * @param type $file
+     * @return boolean
+     */
     function sendStreamFile($url, $file) {
         if (empty($url) || empty($file)) {
             return false;
@@ -49,8 +62,15 @@ class Curl {
         return $response;
     }
 
-    function saveFile($url, $file) {
-        if (!file_exists($file)) {
+    /**
+     * 远程文件存储到本地
+     * @param type $url      远程地址
+     * @param type $file     保存路径
+     * @param type $recover  是否覆盖
+     * @return boolean
+     */
+    function saveFile($url, $file,$recover=false) {
+        if (!file_exists($file)||$recover) {
  
             //获取语语音数据 并生成 本地mp3文件
             $data = file_get_contents($url);

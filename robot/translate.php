@@ -60,9 +60,9 @@ class translate {
                 }
                 od($data);
             }
-            ot('识别失败');
+            ot('XX识别失败XX');
         } catch (Exception $e) {
-            ot('识别失败');
+            ot('XX识别失败XX');
             od($e);
         }
         return '';
@@ -73,7 +73,7 @@ class translate {
         $spd = "4";
         $url = "http://tsn.baidu.com/text2audio?lan=zh&ie=UTF-8&tex=" . urlencode($txt) . "&cuid={$cuid}" .
                 "&ctp=1&tok={$this->token}&spd={$spd}&per=0&pit=8";
-//        od($url);
+        od($url);
         $ch = new Curl();
         $file = "/tmp/carDemo/".  md5($txt).".mp3";
         $filename=$ch->saveFile($url, $file);

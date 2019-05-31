@@ -11,8 +11,15 @@ use lib\Curl;
  */
 class chat {
 
-    //put your code here
+    /**
+     * 机器人回复,通过图灵接口获取回复内容
+     * @param type $info
+     * @return type
+     */
     function reply($info) {
+        if(empty($info)){
+            return '';
+        }
         $reply = '';
 
         $curl = new Curl();
